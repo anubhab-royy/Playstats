@@ -5,7 +5,7 @@ A simple, minimalistic dashboard that turns a personal gaming-session log
 clear insights: top games this month, playtime split, genre balance,
 totals, and play-time patterns by hour and weekday.
 
-Live version (once deployed): `https://<your-app>.streamlit.app`
+Live version: `https://playstats.streamlit.app`
 
 ---
 
