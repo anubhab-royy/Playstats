@@ -65,16 +65,16 @@ if not yet answered, rather than silently picking one:
 
 ## Phase 3 — Charts
 
-- [ ] Define a shared `GAME_COLOR_MAP` (consistent color per game name)
+- [x] Define a shared `GAME_COLOR_MAP` (consistent color per game name)
       used by any chart that breaks down by game.
-- [ ] `build_donut()` — labels = game names, values = hours, shows %
+- [x] `build_donut()` — labels = game names, values = hours, shows %
       share on hover/label.
-- [ ] `build_radar()` — one axis per genre (fixed order from
+- [x] `build_radar()` — one axis per genre (fixed order from
       `genre_map.GENRES`), values = hours this month.
-- [ ] `build_hour_histogram()` — x = hour (0–23), y = session count.
-- [ ] `build_weekday_histogram()` — x = weekday (Mon–Sun, fixed order),
+- [x] `build_hour_histogram()` — x = hour (0–23), y = session count.
+- [x] `build_weekday_histogram()` — x = weekday (Mon–Sun, fixed order),
       y = session count.
-- [ ] Keep all chart styling minimal: no legends cluttering small chart
+- [x] Keep all chart styling minimal: no legends cluttering small chart
       space unless needed, consistent font size, transparent/plain
       background matching Streamlit's default theme.
 
@@ -121,7 +121,7 @@ done until its own checklist items are all checked.)_
 - [x] Phase 0 — Setup
 - [x] Phase 1 — Genre map
 - [x] Phase 2 — Data processing
-- [ ] Phase 3 — Charts
+- [x] Phase 3 — Charts
 - [ ] Phase 4 — Layout
 - [ ] Phase 5 — Data handling & privacy
 - [ ] Phase 6 — Deployment
