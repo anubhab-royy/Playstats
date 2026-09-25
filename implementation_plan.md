@@ -47,19 +47,19 @@ if not yet answered, rather than silently picking one:
 
 ## Phase 2 — Data processing
 
-- [ ] `load_data()` — read CSV, keep 4 contract columns only, parse +
+- [x] `load_data()` — read CSV, keep 4 contract columns only, parse +
       normalize timestamps (resolve open question #3 first), derive
       `Duration`, `Duration_Hours`, `Genre`, `Hour`, `Weekday`, `Month`.
-- [ ] `get_top_n_games_current_month()`
-- [ ] `get_playtime_share_all_games()` (or month-scoped, per open
+- [x] `get_top_n_games_current_month()`
+- [x] `get_playtime_share_all_games()` (or month-scoped, per open
       question #1)
-- [ ] `get_genre_playtime_current_month()` — must return all 10 fixed
+- [x] `get_genre_playtime_current_month()` — must return all 10 fixed
       genres even at zero, for a stable Radar shape.
-- [ ] `get_total_playtime(period="month")` and `period="week"`
-- [ ] `get_longest_streak_current_month()`
-- [ ] `get_sessions_by_hour()`
-- [ ] `get_sessions_by_weekday()`
-- [ ] Sanity-check each function manually against the sample CSV
+- [x] `get_total_playtime(period="month")` and `period="week"`
+- [x] `get_longest_streak_current_month()`
+- [x] `get_sessions_by_hour()`
+- [x] `get_sessions_by_weekday()`
+- [x] Sanity-check each function manually against the sample CSV
       (`sessionist_export.csv`) before moving to Phase 3 — e.g. hand-
       verify the Top-3 ranking and the longest streak by eye.
 
@@ -120,7 +120,7 @@ done until its own checklist items are all checked.)_
 
 - [x] Phase 0 — Setup
 - [x] Phase 1 — Genre map
-- [ ] Phase 2 — Data processing
+- [x] Phase 2 — Data processing
 - [ ] Phase 3 — Charts
 - [ ] Phase 4 — Layout
 - [ ] Phase 5 — Data handling & privacy
