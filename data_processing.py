@@ -55,8 +55,14 @@ def load_data(
     df = df[required_cols].copy()
 
     # Parse and normalize timestamps to localized naive datetime
-    started_dt = pd.to_datetime(df["Started At"], utc=True)
-    ended_dt = pd.to_datetime(df["Ended At"], utc=True)
+    def _safe_parse_dt(s):
+        try:
+            return pd.to_datetime(s, format="ISO8601", utc=True)
+        except Exception:
+            return pd.to_datetime(s, format="mixed", utc=True)
+
+    started_dt = _safe_parse_dt(df["Started At"])
+    ended_dt = _safe_parse_dt(df["Ended At"])
 
     if tz:
         df["Started At"] = started_dt.dt.tz_convert(tz).dt.tz_localize(None)

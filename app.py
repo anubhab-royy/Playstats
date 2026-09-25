@@ -41,6 +41,14 @@ def load_data_cached(source, genre_map_path="genre_map.json"):
     return dp.load_data(source, genre_map_path=genre_map_path)
 
 
+def render_plotly_chart(fig):
+    """Renders Plotly chart supporting both newer and legacy Streamlit versions without warnings."""
+    try:
+        st.plotly_chart(fig, width="stretch")
+    except (TypeError, ValueError):
+        st.plotly_chart(fig, use_container_width=True)
+
+
 def main():
     st.title("Gaming Sessions Dashboard 🎮")
 
@@ -93,7 +101,7 @@ def main():
         st.subheader("Playtime Share (All-Time)")
         share_df = dp.get_playtime_share_all_games(df)
         donut_fig = ch.build_donut(share_df, game_color_map=game_color_map)
-        st.plotly_chart(donut_fig, use_container_width=True)
+        render_plotly_chart(donut_fig)
 
     st.markdown("---")
 
@@ -104,7 +112,7 @@ def main():
         st.subheader("Playtime by Genre (This Month)")
         genre_series = dp.get_genre_playtime_current_month(df)
         radar_fig = ch.build_radar(genre_series)
-        st.plotly_chart(radar_fig, use_container_width=True)
+        render_plotly_chart(radar_fig)
 
     with col4:
         st.subheader("Summary Metrics")
@@ -128,12 +136,12 @@ def main():
     with col5:
         hourly_series = dp.get_sessions_by_hour(df)
         hour_fig = ch.build_hour_histogram(hourly_series)
-        st.plotly_chart(hour_fig, use_container_width=True)
+        render_plotly_chart(hour_fig)
 
     with col6:
         weekday_series = dp.get_sessions_by_weekday(df)
         weekday_fig = ch.build_weekday_histogram(weekday_series)
-        st.plotly_chart(weekday_fig, use_container_width=True)
+        render_plotly_chart(weekday_fig)
 
 
 if __name__ == "__main__":
