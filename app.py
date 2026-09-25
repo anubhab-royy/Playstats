@@ -109,8 +109,8 @@ def main():
     col3, col4 = st.columns([1, 1])
 
     with col3:
-        st.subheader("Playtime by Genre (This Month)")
-        genre_series = dp.get_genre_playtime_current_month(df)
+        st.subheader("Playtime by Genre (All-Time)")
+        genre_series = dp.get_genre_playtime_all_time(df)
         radar_fig = ch.build_radar(genre_series)
         render_plotly_chart(radar_fig)
 

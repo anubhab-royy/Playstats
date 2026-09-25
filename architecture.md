@@ -65,12 +65,12 @@ of truth.
   not an inconsistency. See open question note in
   `implementation_plan.md` if this should instead be month-scoped.)*
 
-- `get_genre_playtime_current_month(df) -> pd.Series`
-  Filters to current month, maps `Game Name` → `Genre`, groups by genre,
+- `get_genre_playtime_all_time(df) -> pd.Series`
+  Maps `Game Name` → `Genre` across all-time data, groups by genre, and
   sums hours. Always returns all 10 fixed genre categories (Action,
   Adventure, RPG, Strategy, Simulation, Sports, Racing, Puzzle, Shooter,
   Fighting) even if some are zero, so the Radar chart shape stays
-  consistent month to month.
+  consistent.
 
 - `get_total_playtime(df, period="month"|"week") -> float`
   Sums `Duration_Hours` for the current month or current ISO week.
@@ -80,17 +80,10 @@ of truth.
   within the current month. Returns an integer day count.
 
 - `get_sessions_by_hour(df) -> pd.Series`
-  Current-month (or all-time — see note below) session count per hour
-  bucket (0–23), for the Hour-of-Day histogram.
+  All-time session count per hour bucket (0–23), for the Hour-of-Day histogram.
 
 - `get_sessions_by_weekday(df) -> pd.Series`
-  Session count per weekday (Mon–Sun), for the Day-of-Week histogram.
-
-  *Open question flagged in `implementation_plan.md`: should the two
-  lower histograms be scoped to "current month" (consistent with Top-3
-  and Radar) or "all-time" (more data, smoother distribution)? Default
-  assumption: **current month**, for consistency with the rest of the
-  dashboard's time framing. Confirm before final build.*
+  All-time session count per weekday (Mon–Sun), for the Day-of-Week histogram.
 
 ### `genre_map.json` (loaded by `data_processing.py`)
 

@@ -141,11 +141,11 @@ def get_playtime_share_all_games(df: pd.DataFrame) -> pd.DataFrame:
     return share_df
 
 
-def get_genre_playtime_current_month(
+def get_genre_playtime_all_time(
     df: pd.DataFrame, genre_map_path: str = "genre_map.json"
 ) -> pd.Series:
     """
-    Computes total playtime per genre for the target month.
+    Computes total playtime per genre across all-time data.
     Implements Option B: credits full session hours to each genre in session's genre list.
     Always returns all 10 fixed genres in exact order.
     """
@@ -162,22 +162,23 @@ def get_genre_playtime_current_month(
     if df.empty:
         return pd.Series(0.0, index=fixed_genres)
 
-    target_month = _get_target_month(df)
-    m_df = df[df["Month"] == target_month]
-
     genre_totals = {g: 0.0 for g in fixed_genres}
     if fallback not in genre_totals:
         genre_totals[fallback] = 0.0
 
-    for _, row in m_df.iterrows():
+    for _, row in df.iterrows():
         hrs = row["Duration_Hours"]
         genres = row["Genres"]
         for g in genres:
             genre_totals[g] = genre_totals.get(g, 0.0) + hrs
 
-    # Return series ordered by fixed_genres (plus fallback if present and > 0)
+    # Return series ordered by fixed_genres
     series_data = {g: genre_totals.get(g, 0.0) for g in fixed_genres}
     return pd.Series(series_data)
+
+
+# Alias for backward compatibility
+get_genre_playtime_current_month = get_genre_playtime_all_time
 
 
 def get_total_playtime(df: pd.DataFrame, period: str = "month") -> float:
@@ -233,22 +234,19 @@ def get_longest_streak_current_month(df: pd.DataFrame) -> int:
 
 
 def get_sessions_by_hour(df: pd.DataFrame) -> pd.Series:
-    """Session count per hour (0–23) for the target month."""
+    """Session count per hour (0–23) across all-time data."""
     hours = list(range(24))
     if df.empty:
         return pd.Series(0, index=hours)
-    target_month = _get_target_month(df)
-    m_df = df[df["Month"] == target_month]
-    counts = m_df["Hour"].value_counts().reindex(hours, fill_value=0)
+    counts = df["Hour"].value_counts().reindex(hours, fill_value=0)
     return counts
 
 
 def get_sessions_by_weekday(df: pd.DataFrame) -> pd.Series:
-    """Session count per day of week (Mon–Sun) for the target month."""
+    """Session count per day of week (Mon–Sun) across all-time data."""
     weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     if df.empty:
         return pd.Series(0, index=weekdays)
-    target_month = _get_target_month(df)
-    m_df = df[df["Month"] == target_month]
-    counts = m_df["Weekday"].value_counts().reindex(weekdays, fill_value=0)
+    counts = df["Weekday"].value_counts().reindex(weekdays, fill_value=0)
+    return counts
     return counts

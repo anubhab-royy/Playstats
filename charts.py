@@ -174,7 +174,7 @@ def build_hour_histogram(hourly_series: pd.Series) -> go.Figure:
     )
 
     fig.update_layout(
-        title=dict(text="Sessions by Hour of Day", font=dict(size=13)),
+        title=dict(text="Sessions by Hour of Day (All-Time)", font=dict(size=13)),
         margin=dict(l=20, r=20, t=35, b=30),
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
@@ -222,7 +222,7 @@ def build_weekday_histogram(weekday_series: pd.Series) -> go.Figure:
     )
 
     fig.update_layout(
-        title=dict(text="Sessions by Day of Week", font=dict(size=13)),
+        title=dict(text="Sessions by Day of Week (All-Time)", font=dict(size=13)),
         margin=dict(l=20, r=20, t=35, b=30),
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
