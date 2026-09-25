@@ -106,12 +106,12 @@ if not yet answered, rather than silently picking one:
 
 ## Phase 6 — Deployment
 
-- [ ] Push repo to GitHub.
-- [ ] Connect repo on [share.streamlit.io](https://share.streamlit.io),
+- [x] Push repo to GitHub.
+- [x] Connect repo on [share.streamlit.io](https://share.streamlit.io),
       set entry point to `app.py`.
-- [ ] Verify the deployed app loads the correct CSV (committed sample or
+- [x] Verify the deployed app loads the correct CSV (committed sample or
       upload flow) and all 6 layout regions render without errors.
-- [ ] Confirm auto-redeploy works on a trivial follow-up commit.
+- [x] Confirm auto-redeploy works on a trivial follow-up commit.
 
 ## Status
 
@@ -124,4 +124,4 @@ done until its own checklist items are all checked.)_
 - [x] Phase 3 — Charts
 - [x] Phase 4 — Layout
 - [x] Phase 5 — Data handling & privacy
-- [ ] Phase 6 — Deployment
+- [x] Phase 6 — Deployment
