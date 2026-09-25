@@ -80,28 +80,28 @@ if not yet answered, rather than silently picking one:
 
 ## Phase 4 — Layout (`app.py`)
 
-- [ ] `@st.cache_data`-wrap the data load call.
-- [ ] Build the 2-column x 3-row grid per the layout table in
+- [x] `@st.cache_data`-wrap the data load call.
+- [x] Build the 2-column x 3-row grid per the layout table in
       `architecture.md`.
-- [ ] Upper-left: render Top-3 as plain text/`st.metric` ranking
+- [x] Upper-left: render Top-3 as plain text/`st.metric` ranking
       (Game — hours), not a chart.
-- [ ] Upper-right: `st.plotly_chart(build_donut(...))`.
-- [ ] Middle-left: `st.plotly_chart(build_radar(...))`.
-- [ ] Middle-rest: three `st.metric()` calls — Month total, Week total,
+- [x] Upper-right: `st.plotly_chart(build_donut(...))`.
+- [x] Middle-left: `st.plotly_chart(build_radar(...))`.
+- [x] Middle-rest: three `st.metric()` calls — Month total, Week total,
       Longest streak.
-- [ ] Lower-left / lower-right: the two histograms.
-- [ ] Page title + minimal page config (`st.set_page_config(layout="wide")`
+- [x] Lower-left / lower-right: the two histograms.
+- [x] Page title + minimal page config (`st.set_page_config(layout="wide")`
       recommended so the 2-column grid isn't cramped).
 
 ## Phase 5 — Data handling & privacy
 
-- [ ] Decide (per open question #4): commit `sessionist_export.csv`
+- [x] Decide (per open question #4): commit `sessionist_export.csv`
       directly, or gitignore it and require local placement / upload.
       **Recommendation:** gitignore the real CSV if this repo is public,
       commit a small anonymized/sample CSV instead so the app runs
       out-of-the-box for anyone cloning it, and let the real personal
       data be supplied locally or via `st.file_uploader`.
-- [ ] If uploader is added: guard against missing/malformed columns with
+- [x] If uploader is added: guard against missing/malformed columns with
       a clear `st.error()` message, not a stack trace.
 
 ## Phase 6 — Deployment
@@ -122,6 +122,6 @@ done until its own checklist items are all checked.)_
 - [x] Phase 1 — Genre map
 - [x] Phase 2 — Data processing
 - [x] Phase 3 — Charts
-- [ ] Phase 4 — Layout
-- [ ] Phase 5 — Data handling & privacy
+- [x] Phase 4 — Layout
+- [x] Phase 5 — Data handling & privacy
 - [ ] Phase 6 — Deployment
