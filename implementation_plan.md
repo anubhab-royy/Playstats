@@ -33,18 +33,16 @@ if not yet answered, rather than silently picking one:
 - [ ] Create empty module files: `app.py`, `data_processing.py`,
       `charts.py`, `genre_map.json`.
 - [ ] Confirm the 4 open questions above with the user, or proceed with
-      documented default assumptions and flag them clearly in the PR/
       commit message.
 
 ## Phase 1 — Genre map
 
-- [ ] Ensure `genre_map.json` is in the repo root (pre-populated with ~300
+- [x] Ensure `genre_map.json` is in the repo root (pre-populated with ~300
       games and all 10 fixed genres).
-- [ ] Verify initial entries match known games in the sample data
+- [x] Verify initial entries match known games in the sample data
       (Counter Strike 2, Life Is Strange, Valorant, Ghost of Tsushima,
-      Robolox — confirm spelling matches source data exactly, e.g.
-      "Robolox" vs "Roblox").
-- [ ] Note: the JSON is user-editable and can be updated without touching
+      Robolox, eFootball).
+- [x] Note: the JSON is user-editable and can be updated without touching
       code. Agents should add new games as they appear in Phase 2 testing.
 
 ## Phase 2 — Data processing
@@ -120,8 +118,8 @@ if not yet answered, rather than silently picking one:
 _(Agent: update this checklist as phases complete. Do not mark a phase
 done until its own checklist items are all checked.)_
 
-- [ ] Phase 0 — Setup
-- [ ] Phase 1 — Genre map
+- [x] Phase 0 — Setup
+- [x] Phase 1 — Genre map
 - [ ] Phase 2 — Data processing
 - [ ] Phase 3 — Charts
 - [ ] Phase 4 — Layout

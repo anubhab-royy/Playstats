@@ -5,3 +5,4 @@ This document records all bugs, runtime errors, data edge cases, and unexpected 
 | Bug ID | Phase / Date | Symptoms / Error Message | Root Cause | Resolution / Fix |
 |---|---|---|---|---|
 | BUG-000 | Phase 0 (2026-09-25) | Initial log setup | Baseline initialized | Operational tracking ready. |
+| BUG-001 | Phase 1 (2026-09-25) | Potential key mismatches and duplicate game keys in `genre_map.json` | Sample export uses `Counter Strike 2` (no hyphen), while some logs use `Counter-Strike 2` | Added both variations (`Counter Strike 2` & `Counter-Strike 2`) and cleaned up duplicate JSON keys. |
